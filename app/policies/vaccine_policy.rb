@@ -6,7 +6,7 @@ class VaccinePolicy < ApplicationPolicy
   end
 
   def create?
-    @true
+    true
   end
 
   def update
