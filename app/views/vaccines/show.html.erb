@@ -1,0 +1,11 @@
+<div class="container justify-content-center">
+  <h1><%= @vaccine.name %></h1>
+  <%= link_to "Back to index", root_path %>
+  <br>
+  <%= cl_image_tag @vaccine.photo, height: 300, width:400, crop: fill %>
+
+  <div class="container">
+    <h3>Description</h3>
+    <p><%= @vaccine.description %></p>
+  </div>
+</div>

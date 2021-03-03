@@ -4,6 +4,10 @@ class VaccinesController < ApplicationController
     @vaccines = Vaccine.all
   end
 
+  def show
+    @vaccine = Vaccine.find(params[:id])
+  end
+
   def new
     @vaccine = Vaccine.new
   end
