@@ -6,7 +6,6 @@ class VaccinesController < ApplicationController
 
   def show
     @vaccine = Vaccine.find(params[:id])
-    authorize @vaccine
   end
 
   def new
