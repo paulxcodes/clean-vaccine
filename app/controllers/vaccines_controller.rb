@@ -2,7 +2,7 @@ class VaccinesController < ApplicationController
 
   before_action :find_vaccine, only: [:show, :edit, :update, :destroy]
   def index
-    @vaccines = Vaccine.all
+    @vaccines = policy_scope(Vaccine)
   end
 
   def new
@@ -29,6 +29,7 @@ class VaccinesController < ApplicationController
       redirect_to vaccine_path(@vaccine), notice: "Vaccine was successfully updated"
     else
       render :edit
+    end
     authorize @vaccine
   end
 
@@ -41,6 +42,7 @@ class VaccinesController < ApplicationController
 
   def find_vaccine
     @vaccine = Vaccine.find(params[:id])
+    authorize @vaccine
   end
 
   def vaccine_params
