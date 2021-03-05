@@ -5,6 +5,10 @@ class VaccinesController < ApplicationController
     @vaccines = policy_scope(Vaccine)
   end
 
+  def show
+    @vaccine = Vaccine.find(params[:id])
+  end
+
   def new
     @vaccine = Vaccine.new
     authorize @vaccine
