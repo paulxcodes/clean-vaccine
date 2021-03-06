@@ -7,7 +7,7 @@
     <h3>Description</h3>
     <p class="colorwhite"><%= @vaccine.description %></p>
   </div>
-  <% if @vaccine.photo.key != nil %>
+  <% if @vaccine.photo.attached? %>
     <%= cl_image_tag @vaccine.photo.key, height: 300, width: 400, crop: :fill %>
   <% else %>
     <img src="https://source.unsplash.com/CMLL0UD6AEE/300x400">

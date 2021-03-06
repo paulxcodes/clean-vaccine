@@ -18,8 +18,5 @@ puts "#{paul.id} got created "
     description: Faker::Cannabis.health_benefit,
     user_id: paul.id,
   )
-  # file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-  new_vaccine.photo.attach(io: (remote_photo_url: "https://res.cloudinary.com/dgbyx82it/image/upload/v1558722969/photos/dj_jvpipc.jpg"), filename: 'test.jpg', content_type: 'image/jpg' )
-  puts remote_photo_url: "https://res.cloudinary.com/dgbyx82it/image/upload/v1558722969/photos/dj_jvpipc.jpg"
   puts "Vaccine #{new_vaccine.id} was created"
 end
