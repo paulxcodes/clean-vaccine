@@ -51,7 +51,7 @@ class VaccinesController < ApplicationController
   end
 
   def vaccine_params
-    params.require(:vaccine).permit(:name, :description)
+    params.require(:vaccine).permit(:name, :description, :photo)
   end
 
 end
