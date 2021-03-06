@@ -3,13 +3,13 @@
 
 
 body {
-  background-color: #F8F6F6;
+  background-color: black;
 }
 
 .container {
-  width: 800px;
+  width: 1000px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
 }
 
 .container p {
@@ -28,10 +28,10 @@ body {
 }
 
 .banner {
-  background-color: black;
+  background-image: url(banner-clean-vaccine-2.jpg);
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 520px;
   text-align: center;
 }
 
