@@ -7,4 +7,7 @@
     <h3>Description</h3>
     <p class="colorwhite"><%= @vaccine.description %></p>
   </div>
+  <div class="vaccine-image">
+    <%= cl_image_tag @vaccine.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
 </div>
