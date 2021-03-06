@@ -5,6 +5,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .card-product img {

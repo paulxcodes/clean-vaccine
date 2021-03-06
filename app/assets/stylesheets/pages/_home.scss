@@ -3,18 +3,23 @@
 
 
 body {
-  background-color: black;
+  background-color: #FFFFFF;
 }
 
 .container {
   width: 1000px;
   margin: 0 auto;
-  padding: 30px;
+  padding-top: 30px;
 }
 
 .container p {
   padding-top: 15px;
   color: black;
+}
+
+h3 {
+  color: #00D54B;
+  font-weight: bold;
 }
 
 .container h1 {
