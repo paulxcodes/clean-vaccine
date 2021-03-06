@@ -1,13 +1,16 @@
-<div class="content">
-  <ul>
-    <% @vaccines.each do |vaccine| %>
-      <div class="card-product">
-        <img src="https://source.unsplash.com/CMLL0UD6AEE/1600x900">
-        <div class="card-product-infos">
-          <h2><%= link_to vaccine.name, vaccine_path(vaccine) %></h2>
-          <p><%= vaccine.description %></strong></p>
+<div class=content>
+  <div class="cards">
+    <ul>
+      <% @vaccines.each do |vaccine| %>
+        <div class="card-product">
+          <img src="https://source.unsplash.com/CMLL0UD6AEE/1600x900">
+          <div class="card-product-infos">
+            <h2><%= link_to vaccine.name, vaccine_path(vaccine) %></h2>
+            <p><%= vaccine.description %></strong></p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </ul>
-<div>
+      <% end %>
+    </ul>
+  <div>
+    <%= image_tag "mapbox.png", id:"map" %>
+</div>

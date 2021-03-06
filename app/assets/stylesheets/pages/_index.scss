@@ -1,5 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "components/card";
+@import "new";
 @import "show";
 
+.content {
+  display: flex;
+}
