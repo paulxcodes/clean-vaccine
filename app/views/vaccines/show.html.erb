@@ -12,4 +12,13 @@
   <% else %>
     <img src="https://source.unsplash.com/CMLL0UD6AEE/300x400">
   <% end %>
+
+  <%= link_to 'Reserve this vaccine', new_vaccine_reservation_path(@vaccine), class: 'btn btn-primary' %>
+
+  <!-- Will add addtional logics later -->
+  <% @vaccine.reservations.each do |reservation| %>
+    <% if reservation.status == 'Pending' %>
+      <p>You have successfully reserved this vaccine at this date: <%= reservation.date %></p>
+    <% end %>
+  <% end %>
 </div>

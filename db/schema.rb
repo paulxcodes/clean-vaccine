@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2021_03_06_163610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "reservations", force: :cascade do |t|
+    t.string "status"
+    t.string "date"
+    t.bigint "vaccine_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["vaccine_id"], name: "index_reservations_on_vaccine_id"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_03_06_163610) do
     t.index ["user_id"], name: "index_vaccines_on_user_id"
   end
 
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "vaccines"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "vaccines", "users"
 end
