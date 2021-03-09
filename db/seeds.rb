@@ -1,3 +1,4 @@
+require 'open-uri'
 require 'faker'
 
 puts "Deleting all the vaccines"
@@ -15,7 +16,7 @@ puts "#{paul.id} got created "
   new_vaccine = Vaccine.create(
     name: Faker::Cannabis.cannabinoid,
     description: Faker::Cannabis.health_benefit,
-    user_id: paul.id
+    user_id: paul.id,
   )
   puts "Vaccine #{new_vaccine.id} was created"
 end
