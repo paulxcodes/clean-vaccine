@@ -7,6 +7,7 @@ class VaccinesController < ApplicationController
 
   def show
     @vaccine = Vaccine.find(params[:id])
+    # @reservation = Reservation.find(params[@vaccine.id])
   end
 
   def new
