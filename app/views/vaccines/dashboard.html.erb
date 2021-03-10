@@ -1,0 +1,18 @@
+<div class="container">
+
+<!-- Temporary html, should make both of these sections into tables -->
+
+  <div class="container" id='your-vaccines'>
+    <h1>Your listed vaccines</h1>
+    <% @vaccines.each do |vaccine| %>
+      <p><%= link_to vaccine.name, vaccine_path(vaccine) %></p>
+    <% end %>
+  </div>
+
+  <div class="container" id="your-reservations">
+    <h1>Your reservations</h1>
+    <% @reservations.each do |reservation| %>
+      <p><%= link_to reservation.vaccine.name, vaccine_path(reservation.vaccine) %> | Date: <%= reservation.date %></p>
+    <% end %>
+  </div>
+</div>

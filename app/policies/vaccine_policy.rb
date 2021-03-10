@@ -2,6 +2,7 @@ class VaccinePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
+      # scope.where(user: user)
     end
   end
 
@@ -19,5 +20,9 @@ class VaccinePolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
+
+  def dashboard?
+    true
   end
 end

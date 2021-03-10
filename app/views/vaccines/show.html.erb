@@ -13,12 +13,23 @@
     <img src="https://source.unsplash.com/CMLL0UD6AEE/300x400">
   <% end %>
 
-  <%= link_to 'Reserve this vaccine', new_vaccine_reservation_path(@vaccine), class: 'btn btn-primary' %>
+  <div class="container">
+    <%= link_to 'Reserve this vaccine', new_vaccine_reservation_path(@vaccine), class: 'btn btn-primary' %>
+  </div>
 
-  <!-- Will add addtional logics later -->
-  <% @vaccine.reservations.each do |reservation| %>
-    <% if reservation.status == 'Pending' %>
-      <p>You have successfully reserved this vaccine at this date: <%= reservation.date %></p>
+  <br>
+
+  <div class="container border-top">
+    <!-- Will add addtional logics later -->
+    <!-- TO ADD => only the current_user can see their reservations. Other users reservation should not be shown  -->
+    <!-- TO ADD => Owner of this vaccine listing can see all reservations -->
+
+    <!-- Currently anyone can see the reservations -->
+    <% @vaccine.reservations.each do |reservation| %>
+      <% if reservation.status == 'Pending' %>
+        <p> <%= reservation.user.email %> has a reservation for this vaccine at this date: <%= reservation.date %>.</p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 </div>
