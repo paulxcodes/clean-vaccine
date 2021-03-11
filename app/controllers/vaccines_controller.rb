@@ -1,6 +1,8 @@
 class VaccinesController < ApplicationController
 
   before_action :find_vaccine, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @vaccines = policy_scope(Vaccine)
   end
@@ -61,6 +63,12 @@ class VaccinesController < ApplicationController
 
   def vaccine_params
     params.require(:vaccine).permit(:name, :description, :photo)
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
 end
