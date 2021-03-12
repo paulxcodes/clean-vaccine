@@ -1,14 +1,33 @@
-<div class="banner">
-</div>
+<div class="banner"></div>
 <div class="container">
-    <h1>Newest</h1>
-    <p><%= link_to "See our newest 🔥 vaccines", vaccines_path%></p>
-  <div class="card-product">
-    <img src="https://source.unsplash.com/CMLL0UD6AEE/1600x900">
-    <div class="card-product-infos">
-      <h2>The "Donald"</h2>
-      <p>Hydroxychloroquine with a hint of <strong>Mr. Clean</strong></p>
-    </div>
+  <h1>Newest</h1>
+  <p><%= link_to "See our newest 🔥 vaccines", vaccines_path%></p>
+  <ul>
+    <% @vaccines[0..4].each do |vaccine| %>
+      <div class="card-product">
+        <% if vaccine.photo.attached? %>
+          <%= cl_image_tag vaccine.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://source.unsplash.com/CMLL0UD6AEE/300x400">
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= link_to vaccine.name, vaccine_path(vaccine) %></h2>
+          <p><%= vaccine.description %></strong></p>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>Get a free second dose</h1>
+    <p>Refer a friend by putting his social insurance number and get a free dose 👽</p>
+    <li class="search-bar">
+      <%= form_tag root_path, style: 'display: flex', method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Social #" %>
+      <% end %>
+    </li>
   </div>
 </div>
+
 
