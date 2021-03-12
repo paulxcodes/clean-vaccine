@@ -20,8 +20,8 @@
 
         <% if reservation.status == 'Pending' %>
           <td>
-            <button class="btn btn-success">Confirm</button>
-            <button class="btn btn-danger">Cancel</button>
+            <button id="confirm" class="btn btn-outline-success btn-sm">Confirm</button>
+            <button id="cancel" class="btn btn-outline-danger btn-sm">Cancel</button>
           </td>
         <% elsif reservation.status == 'Confirmed' %>
           <td>Confirmed</td>
