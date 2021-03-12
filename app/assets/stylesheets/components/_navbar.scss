@@ -16,6 +16,10 @@
 }
 
 .search-bar {
-  display: inline-flex;
+  display: inline-block;
+}
+
+.search-bar .form {
+  display: flex;
 }
 

@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="search-bar">
-          <%= form_tag vaccines_path, method: :get do %>
+          <%= form_tag vaccines_path, style: 'display: flex', method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a vaccine" %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
