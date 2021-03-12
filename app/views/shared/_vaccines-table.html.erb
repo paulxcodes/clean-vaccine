@@ -1,0 +1,18 @@
+<h1>Your listed vaccines</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Vaccine id</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vaccines.each do |vaccine| %>
+      <tr>
+        <th scope="row"><%= vaccine.id %></th>
+        <td><%= link_to vaccine.name, vaccine_path(vaccine) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
