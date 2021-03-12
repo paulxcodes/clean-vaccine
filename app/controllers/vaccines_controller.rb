@@ -1,10 +1,13 @@
 class VaccinesController < ApplicationController
 
-  before_action :find_vaccine, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @vaccines = policy_scope(Vaccine)
+    if params[:query].present?
+      @vaccines = policy_scope(Vaccine.search_by_name_and_description(params[:query]))
+     else
+      @vaccines = policy_scope(Vaccine)
+     end
   end
 
   def show
@@ -62,7 +65,7 @@ class VaccinesController < ApplicationController
   end
 
   def vaccine_params
-    params.require(:vaccine).permit(:name, :description, :photo)
+    params.require(:vaccine).permit(:name, :description, :photo, :query)
   end
 
   def require_login

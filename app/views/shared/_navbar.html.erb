@@ -11,6 +11,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <li class="search-bar">
+          <%= form_tag vaccines_path, style: 'display: flex', method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a vaccine" %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+        </li>
+
         <li class="nav-item">
           <%= link_to "Dashboard", dashboard_path, class: "nav-link text-white" %>
         </li>
