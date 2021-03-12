@@ -1,0 +1,35 @@
+<h1>Reservations for your vaccines</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vaccine name</th>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+      <th scope="col">Confirmation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations_for_seller.each do |reservation| %>
+      <tr>
+        <th scope="row"><%= reservation.id %></th>
+        <td><%= link_to reservation.vaccine.name, vaccine_path(reservation.vaccine) %></td>
+        <td><%= reservation.user.email %></td>
+        <td><%= reservation.date %></td>
+
+        <% if reservation.status == 'Pending' %>
+          <td>
+            <button class="btn btn-success">Confirm</button>
+            <button class="btn btn-danger">Cancel</button>
+          </td>
+        <% elsif reservation.status == 'Confirmed' %>
+          <td>Confirmed</td>
+        <% else %>
+          <td>Cancelled</td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

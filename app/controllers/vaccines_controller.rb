@@ -50,6 +50,15 @@ class VaccinesController < ApplicationController
 
     # Vaccines you have reserved(booked)
     @reservations = policy_scope(Reservation).where(user: current_user)
+
+    # Reservations for your vaccines
+    # Find all reservations where the owner of the vaccine is the current_user
+    @reservations_for_seller = []
+    @vaccines.each do |vaccine|
+      vaccine.reservations.each do |reservation|
+        @reservations_for_seller << reservation
+      end
+    end
   end
 
   private
