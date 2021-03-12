@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+
   def new
     @vaccine = Vaccine.find(params[:vaccine_id])
     @user = current_user

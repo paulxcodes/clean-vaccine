@@ -1,6 +1,6 @@
 class VaccinesController < ApplicationController
 
-  before_action :find_vaccine, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -48,6 +48,15 @@ class VaccinesController < ApplicationController
     redirect_to vaccines_path, notice: "Vaccine was successfully deleted"
   end
 
+  def dashboard
+    # Vaccines you have listed
+    # @vaccines = Vaccine.where(user: current_user)
+    @vaccines = policy_scope(Vaccine).where(user: current_user)
+
+    # Vaccines you have reserved(booked)
+    @reservations = policy_scope(Reservation).where(user: current_user)
+  end
+
   private
 
   def find_vaccine
@@ -57,6 +66,12 @@ class VaccinesController < ApplicationController
 
   def vaccine_params
     params.require(:vaccine).permit(:name, :description, :photo, :query)
+  end
+
+  def require_login
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
 end

@@ -4,7 +4,7 @@
       <h1>Reserve Vaccine: <%= @vaccine.name %></h1>
 
       <%= simple_form_for [ @vaccine, @reservation ] do |f| %>
-        <%= f.input :date, as: :date, label: 'Your reservation date:' %>
+        <%= f.input :date, as: :string, input_html: {type: :date}, label: 'Your reservation date:' %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>

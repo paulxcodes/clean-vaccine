@@ -3,7 +3,11 @@
     <ul>
       <% @vaccines.each do |vaccine| %>
         <div class="card-product">
-          <img src="https://source.unsplash.com/CMLL0UD6AEE/1600x900">
+          <% if vaccine.photo.attached? %>
+            <%= cl_image_tag vaccine.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src="https://source.unsplash.com/CMLL0UD6AEE/300x400">
+          <% end %>
           <div class="card-product-infos">
             <h2><%= link_to vaccine.name, vaccine_path(vaccine) %></h2>
             <p><%= vaccine.description %></strong></p>
@@ -11,6 +15,6 @@
         </div>
       <% end %>
     </ul>
-  <div>
+  </div>
     <%= image_tag "mapbox.png", id:"map" %>
 </div>
