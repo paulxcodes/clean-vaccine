@@ -20,7 +20,8 @@
 
         <% if reservation.status == 'Pending' %>
           <td>
-            <button id="confirm" class="btn btn-outline-success btn-sm">Confirm</button>
+            <%= link_to "Confirm", reservation_confirm_path, method: :confirm, data: { confirm: "Are you sure you want to confirm this reservation?" }, class: 'btn btn-outline-success btn-sm'  %>
+            
             <button id="cancel" class="btn btn-outline-danger btn-sm">Cancel</button>
           </td>
         <% elsif reservation.status == 'Confirmed' %>
