@@ -13,11 +13,11 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
-  def confirm
+  def confirm?
     true
   end
 
-  def cancel
+  def cancel?
     true
   end
 end

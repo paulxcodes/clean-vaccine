@@ -20,10 +20,10 @@
 
         <% if reservation.status == 'Pending' %>
           <td>
-            <%= link_to "Confirm", reservation_confirm_path, method: :confirm, data: { confirm: "Are you sure you want to confirm this reservation?" }, class: 'btn btn-outline-success btn-sm'  %>
-            
-            <button id="cancel" class="btn btn-outline-danger btn-sm">Cancel</button>
+            <%= link_to "Confirm", reservation_confirm_path(reservation.id), method: :patch, data: { confirm: "Are you sure you want to confirm this reservation?" }, class: 'btn btn-outline-danger btn-sm' %>
+            <%= link_to "Cancel", reservation_cancel_path(reservation.id), method: :patch, data: { confirm: "Are you sure you want to cancel this reservation?" }, class: 'btn btn-outline-danger btn-sm' %>
           </td>
+
         <% elsif reservation.status == 'Confirmed' %>
           <td>Confirmed</td>
         <% else %>

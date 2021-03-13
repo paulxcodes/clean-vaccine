@@ -21,19 +21,19 @@ class ReservationsController < ApplicationController
     authorize @reservation
   end
 
-  def confirm
-    @reservation = Reservation.find(params[:id])
-    @reservation.status = 'Confirmed'
-    redirect_to dashboard_path
-    authorize @reservation
-  end
+  # def confirm
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.status = 'Confirmed'
+  #   redirect_to dashboard_path
+  #   authorize @reservation
+  # end
 
-  def cancel
-    @reservation = Reservation.find(params[:id])
-    @reservation.status = 'Cancelled'
-    redirect_to dashboard_path
-    authorize @reservation
-  end
+  # def cancel
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.status = 'Cancelled'
+  #   redirect_to dashboard_path
+  #   authorize @reservation
+  # end
 
   private
 
