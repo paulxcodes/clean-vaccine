@@ -4,5 +4,6 @@
 @import "show";
 
 .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
