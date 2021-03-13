@@ -1,0 +1,22 @@
+<h1>Your reservations</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vaccine</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <th scope="row"><%= reservation.id %></th>
+        <td><%= link_to reservation.vaccine.name, vaccine_path(reservation.vaccine) %></td>
+        <td><%= reservation.date %></td>
+        <td><%= reservation.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
