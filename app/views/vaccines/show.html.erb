@@ -17,26 +17,4 @@
     <%= link_to 'Reserve this vaccine', new_vaccine_reservation_path(@vaccine), class: 'btn btn-primary' %>
   </div>
 
-  <br>
-
-  <div class="container border-top">
-    <!-- Will add addtional logics later -->
-    <!-- TO ADD => only the current_user can see their reservations. Other users reservation should not be shown  -->
-    <!-- TO ADD => Owner of this vaccine listing can see all reservations -->
-
-    <!-- Currently anyone can see the reservations -->
-<!--     <% @vaccine.reservations.each do |reservation| %>
-      <% if reservation.status == 'Pending' %>
-        <p> <%= reservation.user.email %> has a reservation for this vaccine at this date: <%= reservation.date %>.</p>
-      <% end %>
-    <% end %> -->
-    <% if @vaccine.user == current_user %>
-      <% current_user.reservations.each do |reservation| %>
-        <% if reservation.status == 'Pending' %>
-          <p> <%= reservation.user.email %> has a reservation for this vaccine at this date: <%= reservation.date %>.</p>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
 </div>
