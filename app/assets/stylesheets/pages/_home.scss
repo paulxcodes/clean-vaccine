@@ -35,10 +35,12 @@ h3 {
 
 .banner {
   background-image: image-url('banner-clean-vaccine-2.jpg');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   height: 520px;
   text-align: center;
+  background-color: $clean-vaccine-green;
 }
 
 li {

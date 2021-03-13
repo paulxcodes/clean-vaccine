@@ -3,6 +3,7 @@ require 'faker'
 
 puts "Deleting all the vaccines"
 
+Reservation.delete_all
 Vaccine.delete_all
 User.delete_all
 
